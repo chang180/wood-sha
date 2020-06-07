@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大尾沙手作木工藝品展示場</title>
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="custom.css" type="Text">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e124ffab93.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans TC', 'Open sans', Helvetica, Arial, sans-serif;
+            background: #eee;
+        }
+
+        /* wood-slider */
+        #wood-slider img {
+            object-fit: cover;
+            filter: blur(2px) grayscale(30%);
+        }
+
+        #wood-slider .carousel-caption {
+            top: 0;
+            bottom: 0;
+            text-shadow: 3px 3px 5px #000;
+
+        }
+
+        #wood-slider a {
+            text-shadow: 3px 3px 5px #000;
+        }
+
+        #wood-slider .carousel-indicators>li {
+
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            border: 10px solid transparent;
+        }
+
+
+        /************wood-item***************/
+        #wood-item nav>a {
+            flex: 0 1 15%;
+        }
+
+        #wood-item nav a.active {
+            /* border-bottom:1px solid #17a2b8; */
+            transition: .5s ease;
+            background: #17a2b8;
+        }
+
+        #wood-item nav.nav-tabs>.nav-link {
+            flex: 0 1 12%;
+            box-shadow: 1px -1px 5px 0px #ccc;
+        }
+
+        #wood-item nav.nav-tabs>.active {
+            background: #17a2b8 !important;
+        }
+
+        #wood-item nav.nav-tabs,
+        #wood-item nav.nav-tabs>.nav-link {
+            border: 0;
+            border-bottom: 1px solid #17a2b8;
+        }
+
+        #wood-item>.tab-content>.row.active {
+            display: flex;
+        }
+
+        #itemPrice th,
+        #itemPrice td {
+            vertical-align: middle;
+        }
+
+        #itemPrice th {
+            width: 25%;
+        }
+
+        /* wood-facility */
+
+        #wood-facility {
+            background: url(imgs/bgfac.jpg),
+                /* background: url("https://picsum.photos/1920/1080/?random=1"), */
+                /* radial-gradient(circle, #777 30%, #ccc 70%),
+                linear-gradient(to right, #999, #444); */
+                linear-gradient(90deg,
+                    rgba(50, 57, 56, .5)19%,
+                    rgba(103, 55, 55, .3)19%,
+                    rgba(50, 55, 55, .2)84%);
+            background-blend-mode: color-burn;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        /* wood-trans */
+        #wood-trans iframe {
+            filter: grayscale(.75) brightness(.5);
+            /* opacity:.7; */
+        }
+
+        /* footer */
+        footer>.position-fixed {
+            bottom: 5vh;
+            right: 5vh;
+            animation: bounce 2s ease infinite;
+        }
+
+        @media(min-width:992px) {
+            #wood-facility li:nth-of-type(even) img {
+                order: 1;
+            }
+        }
+
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            53%,
+            80%,
+            100% {
+                animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                transform: translateX(0);
+            }
+
+            40%,
+            43% {
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                transform: translateY(-30px);
+            }
+
+            70% {
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                transform: translateY(-15px);
+            }
+
+            90% {
+                transform: translateY(0, -4px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="woodmenu" class="fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="#woodslider">大尾沙工作室</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#wood-nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="wood-nav">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#wood-item"><i class="fas fa-fw fa-bed mr-2"></i>木作工藝</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#wood-facility"><i class="fas fa-fw fa-gamepad mr-2"></i>工作室</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#wood-food"><i class="fas fa-fw fa-utensils mr-2"></i>手作成品</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#wood-trans"><i class="fas fa-fw fa-map-marker-alt mr-2"></i>交通資訊</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#wood-contact"><i class="fas fa-fw fa-envelope mr-2"></i>聯絡我們</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section id="wood-slider" class="carousel slide" data-ride="carousel" data-interval="5000" data-pause="hover">
+        <ol class="carousel-indicators">
+            <li data-target="#wood-slider" data-slide-to="0" class="active"></li>
+            <li data-target="#wood-slider" data-slide-to="1"></li>
+            <li data-target="#wood-slider" data-slide-to="2"></li>
+            <li data-target="#wood-slider" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active vh-100">
+                <img src="./img/img01.jpg" class="d-block w-100 h-100">
+                <div class="carousel-caption d-flex justify-content-center flex-column">
+                    <h1>手作製品一</h1>
+                    <p class="d-none d-md-block">立即交通辦公輕輕再說求助體內垃圾騎士，大家都醫院時期研究所，陷入收到美容要去方案執法損失生物，擁有。</p>
+                </div>
+            </div>
+            <div class="carousel-item vh-100">
+                <img src="./img/img02.jpg" class="d-block w-100 h-100">
+                <div class="carousel-caption d-flex justify-content-center flex-column">
+                    <h1>手作製品二</h1>
+                    <p class="d-none d-md-block">面臨只是理念本週，鈴聲下載數學點此她是不想一口氣詳細訊息法律精選漢化一位但是，主演登錄，面議招聘形。</p>
+                </div>
+            </div>
+            <div class="carousel-item vh-100">
+                <img src="./img/img03.jpg" class="d-block w-100 h-100">
+                <div class="carousel-caption d-flex justify-content-center flex-column">
+                    <h1>手作製品三</h1>
+                    <p class="d-none d-md-block">處理導演很少固定搜尋引擎短信簡直設置死了提交影音，備案馬上，貨幣也能發貼，上有面向，回頭上門從此二。</p>
+                </div>
+            </div>
+            <div class="carousel-item vh-100">
+                <img src="./img/img04.jpg" class="d-block w-100 h-100">
+                <div class="carousel-caption d-flex justify-content-center flex-column">
+                    <h1>手作製品四</h1>
+                    <p class="d-none d-md-block">我愛預防未經運作有一著名將會關係魔獸原始碼彼此歐洲計算不願，返回只見免費版，我要圖象組織貼圖，當前。</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#wood-slider" role="button" data-slide="prev">
+            <span class="fas fa-caret-square-left fa-5x"></span>
+        </a>
+        <a class="carousel-control-next" href="#wood-slider" role="button" data-slide="next">
+            <span class="fas fa-caret-square-right fa-5x"></span>
+        </a>
+    </section>
+
+    <!-- <section class="container py-5" id="wood-item">
+        <header class="text-center text-info">
+            <h2 class="pb-3">房型介紹</h2>
+            <nav class="nav nav-tabs justify-content-around border-bottom border-info">
+                <a class="border-0 mb-0 shadow-sm text-white alert-info nav-item nav-link active" data-toggle="tab"
+                    href="#itemA">行政本館</a>
+                <a class="border-0 mb-0 shadow-sm text-white alert-info nav-item nav-link" data-toggle="tab"
+                    href="#itemB">雙幕川館</a>
+                <a class="border-0 mb-0 shadow-sm text-white alert-info nav-item nav-link" data-toggle="tab"
+                    href="#itemC">繪影湯屋</a>
+                <a class="border-0 mb-0 shadow-sm text-white alert-info nav-item nav-link" data-toggle="tab"
+                    href="#itemPrice">價目表</a>
+                <a class="border-0 mb-0 shadow-sm text-white alert-info nav-item nav-link" data-toggle="tab"
+                    href="#itemRule">訂房須知</a>
+            </nav>
+        </header>
+        <article class="tab-content">
+            <div class="tab-pane fade show active" id="itemA" role="tabpanel">
+                <p class="col-12 text-muted text-center my-5">
+                    溫馨典雅的行政本館，給您簡約的度假享受。<br>
+                    使用大片落地窗，採光極佳，每房皆設有觀景陽台，讓您遠眺高山、與大自然一親芳澤。
+                </p>
+                <div class="col-12 row">
+                    <div class="col-12 col-md-6 col-lg-4 mb-5">
+                        <div class="card">
+                            <img class="card-img-top" src="https://picsum.photos/300/200/?random=5">
+                            <div class="card-body">
+                                <h5>行政本館</h5>
+                                <p class="card-text">溫馨雙人房<small class="float-right text-muted">1 大床 | 6.5 坪</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-5">
+                        <div class="card">
+                            <img class="card-img-top" src="https://picsum.photos/300/200/?random=6">
+                            <div class="card-body">
+                                <h5>行政本館</h5>
+                                <p class="card-text">精緻雙人房<small class="float-right text-muted">1 大床 | 10.5 坪</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-5">
+                        <div class="card">
+                            <img class="card-img-top" src="https://picsum.photos/300/200/?random=7">
+                            <div class="card-body">
+                                <h5>行政本館</h5>
+                                <p class="card-text">親子四人房<small class="float-right text-muted">2 大床 | 12 坪</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tab-pane fade" id="itemB" role="tabpanel">
+                <p class="col-12 text-muted text-center my-5">
+                    雙幕川館位於擁有大量的綠地腹地花園，房外種植有柏樹，每房皆為獨棟湯屋設計。<br>
+                    打開房門就見到綠油油的寬廣草地，呼吸一口大自然最新鮮的空氣，三五好友一起夜晚裡賞月觀星，聊天談心，是最愜意的享受。
+                </p>
+                <div class="row col-12">
+                    <div class="col-12 col-md-6 col-lg-4 mb-5">
+                        <div class="card">
+                            <img class="card-img-top" src="https://picsum.photos/300/200/?random=4">
+                            <div class="card-body">
+                                <h5>雙幕川館</h5>
+                                <p class="card-text">溫馨雙人房<small class="float-right text-muted">1 大床 | 6.5 坪</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-5">
+                        <div class="card">
+                            <img class="card-img-top" src="https://picsum.photos/300/200/?random=3">
+                            <div class="card-body">
+                                <h5>雙幕川館</h5>
+                                <p class="card-text">精緻雙人房<small class="float-right text-muted">1 大床 | 10.5 坪</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="itemC" role="tabpanel">
+                <p class="col-12 text-muted text-center my-5">
+                    每房皆為獨棟式小屋設計，鋪設進口大理石防滑地板安心使用，浪漫典雅。<br>
+                    房內設有溫泉浴槽，私享您的奢華溫泉浴時光。
+                </p>
+                <div class="col-12 row">
+                    <div class="col-12 col-md-6 col-lg-4 mb-5">
+                        <div class="card">
+                            <img class="card-img-top" src="https://picsum.photos/300/200/?random=2">
+                            <div class="card-body">
+                                <h5>繪影湯屋</h5>
+                                <p class="card-text">溫馨雙人房<small class="float-right text-muted">8.5 坪</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-5">
+                        <div class="card">
+                            <img class="card-img-top" src="https://picsum.photos/300/200/?random=1">
+                            <div class="card-body">
+                                <h5>繪影湯屋</h5>
+                                <p class="card-text">精緻雙人房<small class="float-right text-muted">12.5 坪</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-5">
+                        <div class="card">
+                            <img class="card-img-top" src="https://picsum.photos/300/200/?random=8">
+                            <div class="card-body">
+                                <h5>繪影湯屋</h5>
+                                <p class="card-text">親子四人房<small class="float-right text-muted">附 1 大床 | 20
+                                        坪</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="itemPrice" role="tabpanel">D...</div>
+            <div class="tab-pane fade" id="itemRule" role="tabpanel">
+                <h3 class="text-right border-bottom border-info pt-5">入住須知</h3>
+                <h5 class="text-info">[ 飯店設備 ]</h5>
+                <p class="mb-5">
+                    客房無線網路、有線第四台、自助洗衣機、免費烘乾機、免費停車場
+                </p>
+                <h5 class="text-info">[ 入住須知 ]</h5>
+                <p class="mb-5">
+                    進房時間（Check-in）為 15:00 以後；退房時間 （Check-out）時間為 11:00 以前。<br>
+                    住宿時請攜帶本人身份證、駕照正本以利核對。<br>
+                    一般住宿附贈早餐、 SPA 券（依住宿房型開立），特殊專案依專案條件辦理。<br>
+                    超過退房時間一個小時將以一個小時 200 元計費，超過半個小時將以一個小時計算。<br>
+                    請注意住宿人數勿超過客房設定之人數，若有超過客房設定人數，飯店有權拒絕入住。
+                </p>
+                <h5 class="text-info">[ 平假日定義 ]</h5>
+                <p class="mb-5">
+                    平日時間：星期日～星期五；假日時間：星期六、連續假日結束前一日，依飯店公告為準。
+                </p>
+                <h5 class="text-info">[ 加人服務 ]</h5>
+                <p class="mb-5">
+                    本飯店繪影湯屋房型提供加人服務（含軟墊、備品、早餐、溫泉 SPA 券），<br>
+                    每加一人 NT$600 （春節期間不適用）。
+                </p>
+                <h5 class="text-info">[ 其他注意事項 ]</h5>
+                <p class="mb-5">
+                    為維護住宿品質，室內空間全面禁菸，禁止攜帶貓狗等寵物入住，如經查獲加收清潔費 0748 元。<br>
+                    為維護公共及個人安全，禁止在房間內烹煮食物，或攜帶瓦斯、電磁爐等同性質家俱，敬請房客務必配合。<br>
+                    客房地面為木質地板，請勿擅自移動房內家俱，如發現自行搬動客房家俱造成木質地面損傷，須付損毀費用。<br>
+                    房型擺設僅供參考，以實體房間為止。<br>
+                    免費停車場（僅供免費停車，不負保管之責）。<br>
+                    行政本館及雙幕川館內衛浴設備皆為一般熱水，如需使用溫泉需至戶外大眾池或改訂繪影湯屋房型。
+                </p>
+                <h3 class="text-right border-bottom border-info">官網訂房規範</h3>
+                <p class="mb-5">- 僅適用官網訂房，專案如有特殊需求，依專案為主</p>
+                <h5 class="text-info">[ 官網訂房須知 ]</h5>
+                <p class="mb-5">
+                    線上訂房交易價格均已含營業稅及服務費，若您選擇線上刷卡，交易成功後將由您的信用卡帳戶直接扣款。<br>
+                    線上訂房不接受國民旅遊卡刷卡訂房，若需使用國民旅遊卡訂房請直接電洽櫃台辦理。
+                </p>
+                <h5 class="text-info">[ 延遲入住手續 ]</h5>
+                <p class="mb-5">
+                    若您在住宿當日，因塞車或其他的因素有所耽擱，無法在當日下午六點以前辦理住房手續，請您先以電話聯繫，否則飯店將視您當日取消訂房，恕不退費。
+                </p>
+                <h5 class="text-info">[ 更改入住日期 ]</h5>
+                <p class="mb-5">
+                    訂房後如欲更改訂房日期，請電話聯絡協助處理。<br>
+                    同一訂單限更改一次，且更改後的訂單恕不接受退房，否則視同取消訂房，依取消訂房規範處理。<br>
+                    如更改後訂單金額大於原訂單金額，旅客需現場另行支付差額；如更改後金額小於原訂單金額，恕不退還差額。
+                </p>
+                <h5 class="text-info">[ 取消訂房 ]</h5>
+                <p class="mb-5">
+                    取消訂房將依以下規範酌收定金，請特別注意：<br>
+                    住宿日 當日 取消訂房，扣定金總金額 100% <br>
+                    住宿日 1 天前（不含當日）取消訂房，扣定金總金額 80% <br>
+                    住宿日 2~3 天前（不含當日）取消訂房，扣定金總金額 70% <br>
+                    住宿日 4~6 天前（不含當日）取消訂房，扣定金總金額 60% <br>
+                    住宿日 7~9 天前（不含當日）取消訂房，扣定金總金額 50% <br>
+                    住宿日 10~13 天前（不含當日）取消訂房，扣定金總金額 40% <br>
+                    住宿日 14 天前（不含當日）取消訂房，扣除匯款手續費後，剩餘定金退還 <br>
+                    線上訂房若有需求取消，請直接與我們「電話」聯繫進行取消退房。<br>
+                    若您使用信用卡付款，我們將由系統進行刷退動作；若您使用臨櫃匯款或 ATM 轉帳，請您傳真訂房者之任一銀行存摺封面至 089-515026。
+                </p>
+                <h5 class="text-info">[ 特殊因素之退房處理 ]</h5>
+                <p class="mb-5">
+                    若因天然災害等不可抗拒之因素（如地震、颱風等，以飯店所在縣市政府公告為準）無法如期前往住宿<br>
+                    請於原訂住宿日3日（含當日)內與飯店之訂房中心聯絡改期（得保留 6 個月）或是辦理退費。
+                </p>
+            </div>
+        </article>
+    </section> -->
+
+
+
+    <footer class="bg-dark alert-light py-3 text-center">
+        <small>大尾沙教官工作室製作<br>
+            copyright &copy; <a class="text-warning" href="https://github.com/chang180" target="_blank">還在學數位設計</a>. all
+            rights reserved</small>
+        <a href="#wood-slider" class="position-fixed btn btn-outline-info fas fa-arrow-up"></a>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
